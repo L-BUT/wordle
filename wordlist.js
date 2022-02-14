@@ -32,6 +32,7 @@ alphabets.forEach(letter => {
 let activelist = wordlist;
 let activeletter,activePos;
 let guess_letters,guess_outcomes;
+let round = 1;
 
 //0 not found, 1 wrong position , 2 correct
 
@@ -42,6 +43,7 @@ function getResult(){
     guess_loop();
     guess_word.value='';
     guess_outcome.value='';
+    round++;
 }
 
 
@@ -91,7 +93,7 @@ function guess_loop(){
     
     
     let resultDOM = document.createElement("p");
-    resultDOM.textContent = activelist.length+' possibilitie(s) : '+activelist.toString();
+    resultDOM.textContent = 'Guess #'+round +' | '+ activelist.length+' possibilitie(s) : '+activelist.toString();
     result.appendChild(resultDOM);
 
 }
@@ -124,4 +126,5 @@ function reset(){
     result.innerHTML='';
     guess_word.value='';
     guess_outcome.value='';
+    round=1;
 }
