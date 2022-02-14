@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        This is a demo page
-    </header>
+    <head>
+        <title>This is a demo page</title>
+        
+        <style>
+            body{font-size: 14pt;}
+            #probability{width: 800pt;background-color: #666363;}
+            #probability>p{background-color: royalblue;color: white;font-weight: bold;height: 16pt;}
+            #probability>p>span{position: absolute;}
+            #result{width: 1200pt;word-wrap: break-word;}
+            div.guess{margin: 10pt;}
+            div.guess>span{border: 2px black solid; color: white;padding: 10pt;margin: 5pt;}
+            span.notMatch{background-color: #939598;}
+            span.wrongPos{background-color: #b59f3b;}
+            span.match{background-color: #6aaa64;}
+            input,button{display: block;width: 600pt;line-height: 20pt;font-size: 12pt;margin: 10pt auto;padding: 0pt;}
+        </style>
+    </head>
+
     <body>
-        <div>HELLO!</div>
+        <div id="probability"></div>
+        <div id="result"></div>
+        <div>
+            <input id="guess_word" type="text" placeholder="Your word guess (Example: snake)">
+            <input id="guess_outcome" type="text" placeholder="Outcome of the guess. 0 = no match, 1 = wrong position, 2 = perfect match (Example: 01021)">
+            <button onclick="getResult();">SUBMIT</button>
+        </div>
+        <script src="wordlist.js"></script>
     </body>
 </html>
