@@ -69,6 +69,8 @@ function guess_loop(){
                 }else{
                     console.log("Do not apply filter at pos:"+index);
                 }
+
+                activelist = activelist.filter(wrong_pos);
                 
                 guessLetterDOM.className="notMatch";
                 break;
@@ -93,7 +95,7 @@ function guess_loop(){
     
     
     let resultDOM = document.createElement("p");
-    resultDOM.textContent = 'Guess #'+round +' | '+ activelist.length+' possibilitie(s) : '+activelist.toString();
+    resultDOM.textContent = 'Guess #'+round +' | '+ activelist.length+' possibilities : '+activelist.toString();
     result.appendChild(resultDOM);
 
 }
