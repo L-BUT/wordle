@@ -117,3 +117,11 @@ function wrong_pos(word){
 function match(word){
     return word[activePos] == activeletter;
 }
+
+
+function reset(){
+    activelist = wordlist;
+    result.innerHTML='';
+    guess_word.value='';
+    guess_outcome.value='';
+}
