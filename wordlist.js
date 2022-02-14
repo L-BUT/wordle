@@ -44,6 +44,7 @@ function getResult(){
     guess_word.value='';
     guess_outcome.value='';
     round++;
+    display_round.textContent=round;
 }
 
 
@@ -129,4 +130,5 @@ function reset(){
     guess_word.value='';
     guess_outcome.value='';
     round=1;
+    display_round.textContent=round;
 }
