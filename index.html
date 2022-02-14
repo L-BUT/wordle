@@ -8,13 +8,14 @@
             #probability>p{background-color: royalblue;color: white;font-weight: bold;height: 16pt;}
             #probability>p>span{position: absolute;}
             #result{width: 1200pt;word-wrap: break-word;}
-            div.guess{margin: 10pt;}
+            div.guess{margin: 30pt 0pt;}
             div.guess>span{border: 2px black solid; color: white;padding: 10pt;margin: 5pt;}
             span.notMatch{background-color: #939598;}
-            span.wrongPos{background-color: #b59f3b;}
+            span.wrongPos{background-color: #fcb900;}
             span.match{background-color: #6aaa64;}
             input,button{display: block;width: 600pt;line-height: 20pt;font-size: 12pt;margin: 10pt auto;padding: 0pt}
             #ui{text-align: center;}
+            .guess>span:hover{cursor: pointer;user-select: none;}
         </style>
     </head>
 
@@ -22,13 +23,50 @@
         <div id="probability"></div>
         <div id="result"></div>
         <div id="ui">
-            <p>Insert your guess word and outcome to see all possibilities:</p>
+            <p>Insert your guess word to see all possibilities.<br>Click on the letter to change color</p>
             <p>Currently: Guess # <span id="display_round">1</span></p>
             <input id="guess_word" type="text" placeholder="Your word guess (Example: snake)">
-            <input id="guess_outcome" type="text" placeholder="Outcome of the guess. 0 = no match, 1 = wrong position, 2 = perfect match (Example: 01021)">
+            <div class="guess">
+                <span id="g1" class="notMatch" data-outcome=0>?</span>
+                <span id="g2" class="notMatch" data-outcome=0>?</span>
+                <span id="g3" class="notMatch" data-outcome=0>?</span>
+                <span id="g4" class="notMatch" data-outcome=0>?</span>
+                <span id="g5" class="notMatch" data-outcome=0>?</span>
+            </div>
+            
             <button onclick="getResult();">SUBMIT</button>
             <button onclick="reset();">RESET</button>
         </div>
         <script src="wordlist.js"></script>
+        <script>
+            guess_word.value='';
+            guess_word.addEventListener('input', inputchanged);
+            g1.addEventListener('click', outcomechanged);
+            g2.addEventListener('click', outcomechanged);
+            g3.addEventListener('click', outcomechanged);
+            g4.addEventListener('click', outcomechanged);
+            g5.addEventListener('click', outcomechanged);
+
+            function inputchanged(){
+                let guess_letters = guess_word.value.split("");
+                g1.textContent = (guess_letters[0]==undefined) ? "?" : guess_letters[0];
+                g2.textContent = (guess_letters[1]==undefined) ? "?" : guess_letters[1];
+                g3.textContent = (guess_letters[2]==undefined) ? "?" : guess_letters[2];
+                g4.textContent = (guess_letters[3]==undefined) ? "?" : guess_letters[3];
+                g5.textContent = (guess_letters[4]==undefined) ? "?" : guess_letters[4];
+            }
+
+            function outcomechanged(caller){
+                
+                let obj = caller.target;
+                switch(obj.dataset.outcome){
+                    case "0": obj.dataset.outcome=1;obj.className="wrongPos";break;
+                    case "1": obj.dataset.outcome=2;obj.className="match";break;
+                    case "2": obj.dataset.outcome=0;obj.className="notMatch";break;
+                    default: console.log("nothing happened");break;
+                }
+            }
+
+        </script>
     </body>
 </html>

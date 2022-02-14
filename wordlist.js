@@ -39,12 +39,16 @@ let round = 1;
 
 function getResult(){
     guess_letters = guess_word.value.split("");
-    guess_outcomes = guess_outcome.value.split("");
+    guess_outcomes = [g1.dataset.outcome,g2.dataset.outcome,g3.dataset.outcome,g4.dataset.outcome,g5.dataset.outcome];
     guess_loop();
     guess_word.value='';
-    guess_outcome.value='';
     round++;
     display_round.textContent=round;
+    g1.dataset.outcome=0;g1.className="notMatch";g1.textContent="?";
+    g2.dataset.outcome=0;g2.className="notMatch";g2.textContent="?";
+    g3.dataset.outcome=0;g3.className="notMatch";g3.textContent="?";
+    g4.dataset.outcome=0;g4.className="notMatch";g4.textContent="?";
+    g5.dataset.outcome=0;g5.className="notMatch";g5.textContent="?";
 }
 
 
@@ -68,7 +72,7 @@ function guess_loop(){
                 {
                     activelist = activelist.filter(not_match);
                 }else{
-                    console.log("Do not apply filter at pos:"+index);
+                    //console.log("Do not apply filter at pos:"+index);
                 }
 
                 activelist = activelist.filter(wrong_pos);
@@ -128,7 +132,11 @@ function reset(){
     activelist = wordlist;
     result.innerHTML='';
     guess_word.value='';
-    guess_outcome.value='';
     round=1;
     display_round.textContent=round;
+    g1.dataset.outcome=0;g1.className="notMatch";g1.textContent="?";
+    g2.dataset.outcome=0;g2.className="notMatch";g2.textContent="?";
+    g3.dataset.outcome=0;g3.className="notMatch";g3.textContent="?";
+    g4.dataset.outcome=0;g4.className="notMatch";g4.textContent="?";
+    g5.dataset.outcome=0;g5.className="notMatch";g5.textContent="?";
 }
