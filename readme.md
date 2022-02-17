@@ -1,11 +1,5 @@
-# This is a tool for playing wordle game
+# ABOUT
 
 This is a tool for playing wordle game
 
-## This is a test
-
-Hello World
-
-### Instrucions
-
-This is a branch
+https://l-but.github.io/wordle/
