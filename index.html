@@ -49,11 +49,11 @@
 
             function inputchanged(){
                 let guess_letters = guess_word.value.split("");
-                g1.textContent = (guess_letters[0]==undefined) ? "?" : guess_letters[0];
-                g2.textContent = (guess_letters[1]==undefined) ? "?" : guess_letters[1];
-                g3.textContent = (guess_letters[2]==undefined) ? "?" : guess_letters[2];
-                g4.textContent = (guess_letters[3]==undefined) ? "?" : guess_letters[3];
-                g5.textContent = (guess_letters[4]==undefined) ? "?" : guess_letters[4];
+                g1.textContent = (guess_letters[0]==undefined) ? "?" : guess_letters[0].toUpperCase();
+                g2.textContent = (guess_letters[1]==undefined) ? "?" : guess_letters[1].toUpperCase();
+                g3.textContent = (guess_letters[2]==undefined) ? "?" : guess_letters[2].toUpperCase();
+                g4.textContent = (guess_letters[3]==undefined) ? "?" : guess_letters[3].toUpperCase();
+                g5.textContent = (guess_letters[4]==undefined) ? "?" : guess_letters[4].toUpperCase();
             }
 
             function outcomechanged(caller){

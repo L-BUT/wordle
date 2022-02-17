@@ -63,7 +63,7 @@ function guess_loop(){
         activePos = index;
 
         let guessLetterDOM = document.createElement("span");
-        guessLetterDOM.textContent=activeletter;
+        guessLetterDOM.textContent=activeletter.toUpperCase();
         
         switch (guess_outcomes[index]) {
             case "0":
